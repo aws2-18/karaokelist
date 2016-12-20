@@ -1,0 +1,24 @@
+<!-- item list -->
+
+{% extends "karaoke/base.html" %}
+
+{% block content %}
+
+<h2>Propers temes</h2>
+
+<button class="btn btn-danger" type="button" onclick="location.href='/torn'">Demana torn!</button>
+<button class="btn btn-success" type="button" onclick="location.reload()">Refresca llista</button>
+
+<ol>
+{% for item in item_list %}
+	<li>{{item.noms}} - {{item.tema}}</li>
+{% empty %}
+	<li>No hi ha cap cantant... :(</li>
+{% endfor %}
+</ol>
+
+<button class="btn btn-danger" type="button" onclick="location.href='/torn'">Demana torn!</button>
+<button class="btn btn-success" type="button" onclick="location.reload()">Refresca llista</button>
+
+{% endblock %}
+

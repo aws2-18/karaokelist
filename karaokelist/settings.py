@@ -25,7 +25,7 @@ SECRET_KEY = '(_07aftzzsif^$*nz_vge)!zn$n^9=4e_w52e5@ixtu=)5yof)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['jolgorio.tk','www.jolgorio.tk','jolgorio.tk:8081']
 
 
 # Application definition

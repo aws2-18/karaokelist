@@ -16,5 +16,6 @@ class Item(models.Model):
 	data = models.DateTimeField( default=django.utils.timezone.now )
 	fet = models.BooleanField(default=False)
 	comentari = models.TextField(blank=True)
+	#ip = models.CharField(blank=True,null=True,default=get_ip(request))
 	#def __str__(self):
 	#	return str(self.noms)+" | "+str(self.tema)

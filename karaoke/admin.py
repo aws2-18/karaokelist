@@ -10,7 +10,7 @@ class ItemAdmin(admin.ModelAdmin):
 	list_editable = ['fet']
 	ordering = ('fet','data')
 	def show_url(self,obj):
-		return '<a href="%s">%s</a>' % (obj.url, obj.url)
+		return '<a href="%s" target="_blank">%s</a>' % (obj.url, obj.url)
 	show_url.allow_tags = True
 
 admin.site.register(Item,ItemAdmin)

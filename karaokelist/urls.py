@@ -19,6 +19,6 @@ from django.contrib import admin
 from karaoke import views
 
 urlpatterns = [
-	url(r'^$', views.ItemListView.as_view() ),
+	url(r'^$', views.ItemListView.as_view(success_url="/") ),
     url(r'^admin/', admin.site.urls),
 ]

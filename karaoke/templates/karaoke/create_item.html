@@ -1,0 +1,9 @@
+<!-- create item view -->
+
+<h1>Sarau nadalenc - Esteve Terradas</h1>
+<h2>Karaoke List</h2>
+
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Envia per a cantar!" />
+</form>

@@ -7,8 +7,6 @@ from models import *
 
 class ItemListView(CreateView):
 	model = Item
-	fields = ['noms','url','comentari','fet']
+	template_name = "karaoke/create_item.html"
+	fields = ['noms','url','comentari']
 
-
-def index(request):
-	return render(request, "create_item.html", {'form',ItemListView})

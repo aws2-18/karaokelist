@@ -27,6 +27,7 @@ urlpatterns = [
 	url(r'^$', views.ItemListView.as_view() ),
 	url(r'^torn$', views.ItemCreateView.as_view(success_url="/list") ),
 	url(r'^list$', views.ItemListView.as_view() ),
-	url(r'^success$', views.successView ), # view feta amb "metode classic"
+	url(r'^vota$', views.VotaView.as_view() ),
+	url(r'^vota2/(?P<votacio>[0-9])', views.votaActionView ), # view feta amb "metode classic"
     url(r'^admin/', admin.site.urls ),     # view del sistema d'administracio automatic de Django
 ]

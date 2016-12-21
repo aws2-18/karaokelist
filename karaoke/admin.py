@@ -13,5 +13,9 @@ class ItemAdmin(admin.ModelAdmin):
 		return '<a title="%s" href="%s" target="_blank">%s</a>' % (obj.comentari, obj.url, obj.url)
 	show_url.allow_tags = True
 
-admin.site.register(Item,ItemAdmin)
+class VotAdmin(admin.ModelAdmin):
+	model = Vot
+	list_display = ['item','ip','data']
 
+admin.site.register(Item,ItemAdmin)
+admin.site.register(Vot,VotAdmin)

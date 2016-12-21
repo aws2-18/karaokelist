@@ -23,10 +23,27 @@ class ItemListView(ListView):
 	model = Item
 	# si no posem template_name agafara per defecte karaoke/item_list.html
 	def get_queryset(self):
+		# nomes posem els items que estiguin per cantar
 		return Item.objects.filter(fet=False)
 
+class VotaView(ListView):
+	model = Item
+	template_name = "karaoke/vota.html"
+	def get_queryset(self):
+		# nomes mostrem els items que ja s'hagin cantat i puguin ser votats
+		return Item.objects.filter(fet=True)
 
-# view classica procedimental amb render (no la utilitzem, nomes com a exemple)
 
-def successView(request):
-	return render(request, 'karaoke/success.html')
+# view classica procedimental amb render
+from ipware.ip import get_ip
+
+def votaActionView(request,votacio):
+	item = Item.objects.get(id=votacio)
+	if item:
+		ip = get_ip(request)
+		if not ip:
+			ip = "desconeguda"
+		vot = Vot( item=item, ip=ip )
+		vot.save()
+		return render(request, 'karaoke/vota_success.html')
+	return render(request, 'karaoke/vota_fail.html')

@@ -1,0 +1,20 @@
+<!-- vota view -->
+{% extends "karaoke/base.html" %}
+
+
+{% block content %}
+
+<h2>Vota les millors actuacions!</h2>
+
+<ol>
+{% for item in item_list %}
+	<li>
+		{{item.noms}} - <a title="{{item.comentari}}" href="{{item.url}}">{{item.tema}}</a>
+		<button class="btn btn-success" type="button" onclick="location.href='/vota2/{{item.id}}'">Vota {{item.noms}}</button>
+	</li>
+{% empty %}
+	<li>No hi ha cap cantant@... :(</li>
+{% endfor %}
+</ol>
+
+{% endblock %}

@@ -17,5 +17,14 @@ class Item(models.Model):
 	fet = models.BooleanField(default=False)
 	comentari = models.TextField(blank=True)
 	#ip = models.CharField(blank=True,null=True,default=get_ip(request))
-	#def __str__(self):
-	#	return str(self.noms)+" | "+str(self.tema)
+	def __str__(self):
+		return str(self.noms)+" | "+str(self.tema)
+
+class Vot(models.Model):
+	item = models.ForeignKey(Item)
+	ip = models.CharField(max_length=20)
+	comentari = models.TextField(blank=True)
+	data = models.DateTimeField( default=django.utils.timezone.now )
+	def __str__(self):
+		return self.item
+

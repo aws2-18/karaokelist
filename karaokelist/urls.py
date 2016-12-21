@@ -18,10 +18,15 @@ from django.contrib import admin
 
 from karaoke import views
 
+# la majoria de les views estan fetes amb "generic display views"
+# https://docs.djangoproject.com/en/1.10/topics/class-based-views/
+# https://docs.djangoproject.com/en/1.10/ref/class-based-views/generic-display/
+# https://docs.djangoproject.com/en/1.10/ref/class-based-views/generic-editing/
+
 urlpatterns = [
 	url(r'^$', views.ItemListView.as_view() ),
 	url(r'^torn$', views.ItemCreateView.as_view(success_url="/list") ),
-	url(r'^success$', views.successView ),
 	url(r'^list$', views.ItemListView.as_view() ),
-    url(r'^admin/', admin.site.urls ),
+	url(r'^success$', views.successView ), # view feta amb "metode classic"
+    url(r'^admin/', admin.site.urls ),     # view del sistema d'administracio automatic de Django
 ]

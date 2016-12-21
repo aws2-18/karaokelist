@@ -26,5 +26,5 @@ class Vot(models.Model):
 	comentari = models.TextField(blank=True)
 	data = models.DateTimeField( default=django.utils.timezone.now )
 	def __str__(self):
-		return self.item
+		return str(self.item)
 

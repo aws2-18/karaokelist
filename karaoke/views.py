@@ -38,12 +38,20 @@ class VotaView(ListView):
 from ipware.ip import get_ip
 
 def votaActionView(request,votacio):
+	print votacio
 	item = Item.objects.get(id=votacio)
 	if item:
 		ip = get_ip(request)
 		if not ip:
 			ip = "desconeguda"
+		try:
+			votrepe = Vot.objects.filter( ip=ip, item=item )
+			if votrepe:
+				return render(request, 'karaoke/vota_fail.html')
+		except:
+			pass
 		vot = Vot( item=item, ip=ip )
 		vot.save()
 		return render(request, 'karaoke/vota_success.html')
 	return render(request, 'karaoke/vota_fail.html')
+

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from models import *
+from karaoke.models import *
 
 class ItemAdmin(admin.ModelAdmin):
 	model = Item

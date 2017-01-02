@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 
 # Create your views here.
 
-from models import *
+from karaoke.models import *
 
 # generic class-based views
 # https://docs.djangoproject.com/en/1.10/topics/class-based-views/
@@ -38,7 +38,7 @@ class VotaView(ListView):
 from ipware.ip import get_ip
 
 def votaActionView(request,votacio):
-	print votacio
+	print( votacio )
 	item = Item.objects.get(id=votacio)
 	if item:
 		ip = get_ip(request)
